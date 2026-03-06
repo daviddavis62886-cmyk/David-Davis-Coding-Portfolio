@@ -1,0 +1,24 @@
+def ohms_law(voltage=None, current=None, resistance=None):
+    if voltage is None:
+        return current * resistance
+    if current is None:
+        return voltage / resistance
+    if resistance is None:
+        return voltage / current
+
+def series_resistors(values):
+    return sum(values)
+
+def parallel_resistors(values):
+    return 1 / sum(1/r for r in values)
+
+# Example usage
+if __name__ == "__main__":
+    print("Ohm's Law Example:")
+    print("Voltage (5V, 10Ω):", ohms_law(current=None, voltage=5, resistance=10))
+
+    print("\nSeries Example:")
+    print("R_total:", series_resistors([10, 20, 30]))
+
+    print("\nParallel Example:")
+    print("R_total:", parallel_resistors([10, 20, 30]))
