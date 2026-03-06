@@ -1,0 +1,12 @@
+import random
+import time
+
+print("voltage_raw,current_raw,temp_raw")
+
+while True:
+    voltage = random.randint(1000, 3000)
+    current = random.randint(0, 2000)
+    temp = random.randint(20, 80)
+
+    print(f"{voltage},{current},{temp}")
+    time.sleep(0.5)
