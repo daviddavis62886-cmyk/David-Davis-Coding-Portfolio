@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import csv
+
+time_axis = []
+voltage = []
+current = []
+temp = []
+
+with open("data.csv") as f:
+    reader = csv.reader(f)
+    next(reader)  # skip header
+
+    for i, row in enumerate(reader):
+        v, c, t = map(int, row)
+        time_axis.append(i)
+        voltage.append(v)
+        current.append(c)
+        temp.append(t)
+
+plt.plot(time_axis, voltage, label="Voltage Raw")
+plt.plot(time_axis, current, label="Current Raw")
+plt.plot(time_axis, temp, label="Temp Raw")
+plt.xlabel("Samples")
+plt.ylabel("ADC Value")
+plt.title("Sensor Data Plot")
+plt.legend()
+plt.tight_layout()
+plt.show()
